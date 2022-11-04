@@ -1,132 +1,118 @@
-# Tale
+# Hyde
 
-[![Gem Version](https://badge.fury.io/rb/tale.svg)](https://badge.fury.io/rb/tale)
+Hyde is a brazen two-column [Jekyll](http://jekyllrb.com) theme that pairs a prominent sidebar with uncomplicated content. It's based on [Poole](http://getpoole.com), the Jekyll butler.
 
-Tale is a minimal Jekyll theme curated for storytellers. Checkout the demo [here](https://chesterhow.github.io/tale/).
+![Hyde screenshot](https://f.cloud.github.com/assets/98681/1831228/42af6c6a-7384-11e3-98fb-e0b923ee0468.png)
 
-![Tale screenshot](http://i.imgur.com/pXZrtmo.png)
 
-## Features
-- Easy installation
-- Compatible with GitHub Pages
-- Responsive design (looks just as good on mobile)
-- Syntax highlighting, with the help of Pygments
-- Markdown and HTML text formatting
-- Pagination of posts
-- Sticky posts
-- Tags
-- Excerpt management
-- [Disqus comments (can be enabled if needed)](#enabling-comments)
+## Contents
 
-## Installation
-There are 3 ways to install this theme
+- [Usage](#usage)
+- [Options](#options)
+  - [Sidebar menu](#sidebar-menu)
+  - [Sticky sidebar content](#sticky-sidebar-content)
+  - [Themes](#themes)
+  - [Reverse layout](#reverse-layout)
+- [Development](#development)
+- [Author](#author)
+- [License](#license)
 
-1. Install it as a Ruby Gem (for self-hosted sites)
-2. Install it with the `jekyll-remote-theme` plugin (for GitHub Pages hosted sites)
-3. Fork the project directly
-
-### Ruby Gem method
-1. Add this line to your `Gemfile`:
-
-```ruby
-gem "tale"
-```
-
-2. Install the theme's gems and dependencies:
-
-```bash
-$ bundle
-```
-
-3. In `_config.yml` add these lines:
-
-```yaml
-theme:      tale
-
-permalink:  /:year-:month-:day/:title
-paginate:   5
-```
-
-Remove any other `theme:` lines.
-
-4. Rename `index.md` to `index.html`. Without this, the `jekyll-paginate` gem will not work.
-
-5. In `about.md`, change the `layout:` field to `post`:
-
-```Markdown
-layout: post
-```
-
-### GitHub Pages method
-1. Add these 2 lines in to your `Gemfile`:
-
-```ruby
-gem "jekyll-remote-theme"
-gem "jekyll-paginate"
-```
-
-2. Install the newly added gems:
-
-```bash
-$ bundle
-```
-
-3. In `_config.yml` add these lines:
-
-```yaml
-remote_theme: chesterhow/tale
-
-permalink:    /:year-:month-:day/:title
-paginate:     5
-
-plugins:
-  - jekyll-paginate
-  - jekyll-remote-theme
-```
-
-Remove any other `theme:` or `remote_theme:` lines.
-
-4. Rename `index.md` to `index.html`. Without this, the `jekyll-paginate` gem will not work.
-
-5. In `about.md`, change the `layout:` field to `post`:
-
-```Markdown
-layout: post
-```
-
-### Fork method
-1. Fork this repository
-
-2. Delete the unnecessary files/folders: `CODE_OF_CONDUCT.md`, `LICENSE`, `README.md`, `tale.gemspec`
-
-3. Delete the `baseurl` line in `_config.yml`:
-
-```yaml
-baseurl:  "/tale"   # delete this line
-```
 
 ## Usage
-Once you've installed the theme, you're ready to work on your Jekyll site. To start off, I would recommend updating `_config.yml` with your site's details.
 
-To build and serve your site, run:
+Hyde is a theme built on top of [Poole](https://github.com/poole/poole), which provides a fully furnished Jekyll setup—just download and start the Jekyll server. See [the Poole usage guidelines](https://github.com/poole/poole#usage) for how to install and use Jekyll.
 
-```bash
-$ bundle exec jekyll serve
+
+## Options
+
+Hyde includes some customizable options, typically applied via classes on the `<body>` element.
+
+
+### Sidebar menu
+
+Create a list of nav links in the sidebar by assigning each Jekyll page the correct layout in the page's [front-matter](http://jekyllrb.com/docs/frontmatter/).
+
+```
+---
+layout: page
+title: About
+---
 ```
 
-And you're all set! Head over to http://127.0.0.1:4000/ to see your site in action.
+**Why require a specific layout?** Jekyll will return *all* pages, including the `atom.xml`, and with an alphabetical sort order. To ensure the first link is *Home*, we exclude the `index.html` page from this list by specifying the `page` layout.
 
-### Enabling Comments
-Comments are disabled by default. To enable them, look for the following line in `_config.yml` and change `jekyll-tale` to your site's Disqus id.
 
-```yml
-disqus: jekyll-tale
+### Sticky sidebar content
+
+By default Hyde ships with a sidebar that affixes it's content to the bottom of the sidebar. You can optionally disable this by removing the `.sidebar-sticky` class from the sidebar's `.container`. Sidebar content will then normally flow from top to bottom.
+
+```html
+<!-- Default sidebar -->
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    ...
+  </div>
+</div>
+
+<!-- Modified sidebar -->
+<div class="sidebar">
+  <div class="container">
+    ...
+  </div>
+</div>
 ```
 
-Next, add `comments: true` to the YAML front matter of the posts which you would like to enable comments for.
 
-## Contributing
-Found a bug or have a suggestion? Feel free to create an issue or make a pull request!
+### Themes
+
+Hyde ships with eight optional themes based on the [base16 color scheme](https://github.com/chriskempson/base16). Apply a theme to change the color scheme (mostly applies to sidebar and links).
+
+![Hyde in red](https://f.cloud.github.com/assets/98681/1831229/42b0b354-7384-11e3-8462-31b8df193fe5.png)
+
+There are eight themes available at this time.
+
+![Hyde theme classes](https://f.cloud.github.com/assets/98681/1817044/e5b0ec06-6f68-11e3-83d7-acd1942797a1.png)
+
+To use a theme, add anyone of the available theme classes to the `<body>` element in the `default.html` layout, like so:
+
+```html
+<body class="theme-base-08">
+  ...
+</body>
+```
+
+To create your own theme, look to the Themes section of [included CSS file](https://github.com/poole/hyde/blob/master/public/css/hyde.css). Copy any existing theme (they're only a few lines of CSS), rename it, and change the provided colors.
+
+### Reverse layout
+
+![Hyde with reverse layout](https://f.cloud.github.com/assets/98681/1831230/42b0d3ac-7384-11e3-8d54-2065afd03f9e.png)
+
+Hyde's page orientation can be reversed with a single class.
+
+```html
+<body class="layout-reverse">
+  ...
+</body>
+```
+
+
+## Development
+
+Hyde has two branches, but only one is used for active development.
+
+- `master` for development.  **All pull requests should be submitted against `master`.**
+- `gh-pages` for our hosted site, which includes our analytics tracking code. **Please avoid using this branch.**
+
+
+## Author
+
+**Mark Otto**
+- <https://github.com/mdo>
+- <https://twitter.com/mdo>
+
 
 ## License
-See [LICENSE](https://github.com/chesterhow/tale/blob/master/LICENSE)
+
+Open sourced under the [MIT license](LICENSE.md).
+
+<3
