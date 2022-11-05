@@ -13,6 +13,8 @@ title: Home
 <ul class="languages">
 {% for lang in site.data.languages %}
 {% assign language = lang[1] %}
-<li><a href="/{{lang[0]}}">{{language.icon}} {{ language.label }} ({{ lang[0] }})</a></li>
+<li>
+  <a href="/{{lang[0]}}"> <img align="left" height="16px" widht="16px" src="/public/img/{{language.icon}}.png"> {{ language.label }}</a>
+</li>
 {% endfor %}
 </ul>

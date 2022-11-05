@@ -1,6 +1,6 @@
 en:
   label: English
-  icon: 🇺🇸
-es:
-  label: Español
-  icon: 🇪🇸
+  icon: en
+pt-br:
+  label: Português
+  icon: pt-br

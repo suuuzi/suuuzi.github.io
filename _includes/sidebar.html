@@ -1,4 +1,10 @@
 <div class="sidebar">
+  <div style="float: right">
+    {% for lang in site.data.languages %}
+    {% assign language = lang[1] %}
+    <a href="/{{lang[0]}}"> <img style="padding-left: 10px;" align="left" height="25px" widht="25px" src="/public/img/{{language.icon}}.png"></a>
+    {% endfor %}
+  </div>
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
       <h1>
