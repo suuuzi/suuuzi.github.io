@@ -1,5 +1,5 @@
 ---
-title: About the Author
+title: About
 layout: page
 lang: en
 lang-ref: about

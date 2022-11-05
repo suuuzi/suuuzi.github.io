@@ -5,12 +5,13 @@
     {% endif %}
     {% if posts.size > 1 %}
     <footer class="lang-options">
-        <em>{{ site.data.translations['differentLanguage'][page.lang] }}:</em>
-        <ul>
+        <p style="font-size: 14px;">{{ site.data.translations['differentLanguage'][page.lang] }}</p>
+        
         {% for post in posts %}
-        <li><a title="{{ site.data.translations['viewIn'][page.lang] }} {{ site.data.languages[post.lang].label }}" class="{{post.lang}}" href="{{ site.base-url }}{{ post.url }}"> <img height="16px" widht="16px" base src="/public/img/{{site.data.languages[post.lang].icon}}.png"></a></li>
+        <a class="{{post.lang}}" href="{{ site.base-url }}{{ post.url }}"> 
+            <img style="padding-left: 10px;" height="16px" widht="16px" src="/public/img/{{site.data.languages[post.lang].icon}}.png">
+        </a>
         {% endfor %}
-        </ul>
     </div>
     {% endif %}
 {% endif %}

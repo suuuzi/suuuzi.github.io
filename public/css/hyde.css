@@ -250,18 +250,8 @@ a.sidebar-nav-item:focus {
 }
 
 footer.lang-options {
+  display: flex;
   border-top: 1px solid #eee;
   margin-top: 2em;
   padding-top: 1em;
-}
-
-footer.lang-options ul {
-  padding-left: 0;
-  margin-left: 0;
-}
-
-footer.lang-options ul > li {
-  list-style: none;
-  display: inline-block;
-  margin-right: 1em;
 }

@@ -3,10 +3,13 @@ selectLang:
   pt-br: "Selecionar um idioma"
 relatedPosts:
   en: "Related Posts"
-  pt-br: "Artigos relacionados"
+  pt-br: "Posts relacionados"
 differentLanguage:
   en: "Read this page in a different language"
-  pt-br: "Leia este artigo em outro idioma"
+  pt-br: "Leia esta página em outro idioma"
 viewIn:
   en: "View in"
   pt-br: "Ver em"
+allPosts:
+  en: "All posts"
+  pt-br: "Todas publicações"
