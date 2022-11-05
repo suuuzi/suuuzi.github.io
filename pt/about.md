@@ -1,7 +1,7 @@
 ---
 title: Sobre el Autor
 layout: page
-lang: es
+lang: pt
 lang-ref: about
 ---
 
